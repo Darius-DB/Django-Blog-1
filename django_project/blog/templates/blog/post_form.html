@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <div class="content">
+                <div id="comments">
+                    <h2>Add a Post</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="one_half">
+                            {{ form|crispy }}
+                        </div>
+                        <div class="one_half">
+                            <input type="submit" name="submit" value="Post">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock content %}

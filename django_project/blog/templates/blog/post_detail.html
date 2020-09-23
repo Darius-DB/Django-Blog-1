@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <div class="content">
+                <div id="comments">
+                    <h2>{{ object.title }}</h2>
+                    <ul>
+                        <li>
+                            <article>
+                                <header>
+                                    <figure class="avatar"><img src="{{ object.author.profile.image.url }}" alt="" height="300"></figure>
+                                </header>
+                                <address>
+                                    By <a href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+                                </address>
+                                <time datetime="">{{ object.date_posted|date:"F d, Y" }}</time>
+                                {% if object.author == user %}
+                                    <div>
+                                        <a href="{% url 'post-update' object.id %}" class="btn btn-secondary btn-sm mt-1 mb-1">Update</a>
+                                        <a href="{% url 'post-delete' object.id %}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
+                                    </div>
+                                {% endif %}
+                                <div class="comcont">
+                                    <p>{{ object.content }}</p>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock content %}

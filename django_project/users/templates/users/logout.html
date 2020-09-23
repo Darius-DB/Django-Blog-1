@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <div class="content">
+                <div id="comments">
+                    <h2>Login</h2>
+
+                    <div class="border-top pt-3 one_half">
+                        <small class="text-muted">
+                            Don't Have An Account? <a class="ml-2" href="{% url 'login' %}">Login Again</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock content %}

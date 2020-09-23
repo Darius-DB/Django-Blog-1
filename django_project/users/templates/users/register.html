@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <div class="content">
+                <div id="comments">
+                    <h2>Register</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="one_half">
+                            {{ form|crispy }}
+                        </div>
+                        <div class="one_half">
+                            <input type="submit" name="submit" value="Sign Up">
+                        </div>
+                    </form>
+        
+                    <div class="border-top pt-3 one_half">
+                        <small class="text-muted">
+                            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock content %}

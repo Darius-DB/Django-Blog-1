@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+   
+        <!-- FORM HERE -->
+        <div class="wrapper row3">
+            <main class="hoc container clear">
+                <div class="content">
+                    <div id="comments">
+                        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                        <div class="media-body">
+                            <h2 class="account-heading">{{ user.username }}</h2>
+                            <p class="text-secondary">{{ user.email }}</p>
+                        <h2>Update Account</h2>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="one_half">
+                                {{ u_form|crispy }}
+                                {{ p_form|crispy }}
+                            </div>
+                            <div class="one_half">
+                                <input type="submit" name="submit" value="Update">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock content %}
